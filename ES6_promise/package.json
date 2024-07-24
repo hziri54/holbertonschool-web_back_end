@@ -1,0 +1,15 @@
+{
+  "name": "es6_promise",
+  "version": "1.0.0",
+  "description": "Project for handling ES6 promises",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "author": "Votre Nom",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^7.32.0"
+  }
+}
