@@ -11,4 +11,4 @@ export default function cleanSet(set, startString) {
     }
     const result = [...new Set(res)];
     return result.join('-');
-  }
+}
