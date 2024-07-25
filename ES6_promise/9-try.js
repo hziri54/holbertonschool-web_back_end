@@ -9,4 +9,4 @@
     queue.push('Guardrail was processed');
   }
   return queue;
-  }
+}
