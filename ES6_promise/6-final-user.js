@@ -8,3 +8,4 @@ export default function handleProfileSignup(firstName, lastName, fileName) {
     body: res.status === 'success' ? res.value : $(`Error: ${res.value.message}`),
   }));
 }
+?
