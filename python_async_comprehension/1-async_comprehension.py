@@ -1,18 +1,30 @@
 #!/usr/bin/env python3
-"""
-Petit module qui récupère 10 nombres aléatoires en mode async.
+""" 
+Module qui exécute plusieurs appels asynchrones à wait_random 
+et retourne les délais en ordre croissant, sans utiliser sort().
 """
 
 import asyncio
-import typing
-from 0-async_generator import async_generator
+from typing import List
+wait_random = __import__('0-basic_async_syntax').wait_random
 
 
-async def async_comprehension() -> typing.List[float]:
+async def wait_n(n: int, max_delay: int) -> List[float]:
     """
-    Récupère 10 nombres aléatoires en utilisant une compréhension async.
+    Lance n fois wait_random avec max_delay et retourne les délais en ordre croissant.
 
-    Retourne :
-        Une liste de 10 nombres flottants entre 0 et 10.
+    Args:
+        n (int): Nombre d'exécutions de wait_random.
+        max_delay (int): Délai maximum pour wait_random.
+
+    Returns:
+        List[float]: Liste des délais obtenus, triés en ordre croissant.
     """
-    return [num async for num in async_generator()]  # On boucle en mode async et on récupère direct les valeurs
+    delays = await asyncio.gather(*(wait_random(max_delay) for _ in range(n)))
+
+    sorted_delays = []
+    while delays:
+        min_val = min(delays)
+        sorted_delays.append(min_val)
+        delays.remove(min_val)
+    return sorted_delays
