@@ -1,26 +1,27 @@
 #!/usr/bin/env python3
-"""Measure the execution time of an asynchronous function.
+"""Execute multiple coroutines concurrently using async.
 
-This module defines a function measure_time that calculates the average
-execution time of wait_n(n, max_delay), which spawns multiple coroutines.
+This module imports the wait_random function from a previous file and
+defines an async function called wait_n. The function spawns wait_random 
+n times with the specified max_delay and returns a list of the delays 
+in ascending order.
 """
 
 import asyncio
-import time
+from typing import List
+wait_r = __import__('0-basic_async_syntax').wait_random
 
-wait_n = __import__('1-concurrent_coroutines').wait_n
 
-def measure_time(n: int, max_delay: int) -> float:
-    """Measure the average execution time of wait_n.
-    
+async def wait_n(n: int, max_delay: int) -> List[float]:
+    """Run wait_random n times and return a list of the delays.
+
     Args:
-        n (int): Number of coroutines to spawn.
-        max_delay (int): Maximum delay for each coroutine.
-    
+        n (int): Number of times to call wait_random.
+        max_delay (int): Maximum delay value for wait_random.
+
     Returns:
-        float: Average execution time per coroutine.
+        List[float]: List of delay values in ascending order.
     """
-    start_time = time.time()
-    asyncio.run(wait_n(n, max_delay))
-    total_time = time.time() - start_time
-    return total_time / n
+    tasks = [asyncio.create_task(wait_r(max_delay)) for _ in range(n)]
+    delays = [await task for task in asyncio.as_completed(tasks)]
+    return delays
