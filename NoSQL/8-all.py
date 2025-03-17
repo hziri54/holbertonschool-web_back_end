@@ -3,9 +3,12 @@ from pymongo import MongoClient
 
 def list_all(mongo_collection):
     """
-    Lists all documents in a collection.
+    Function to retrieve all documents from a MongoDB collection.
     
-    :param mongo_collection: pymongo collection object
-    :return: list of documents, empty list if no document found
+    :param mongo_collection: The pymongo collection object
+    :return: A list of all documents in the collection or an empty list if none exist
     """
+    if not mongo_collection:
+        return []
+    
     return list(mongo_collection.find())
