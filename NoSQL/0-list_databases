@@ -1,2 +1,2 @@
-// This command lists all databases in MongoDB
+// This command lists all databases in Dbmango
 show dbs
