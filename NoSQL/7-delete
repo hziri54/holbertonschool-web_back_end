@@ -1,0 +1,2 @@
+// Delete all files with "Holberton school" as the "name" 
+db.school.deleteMany({ name: "Holberton school" })
