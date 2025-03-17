@@ -54,7 +54,6 @@ class Server:
         Returns:
             Dict[str, Any]: A dictionary with pagination metadata.
         """
-
         assert isinstance(index, int) and 0 <= index < len(self.dataset()), \
             "index must be within the valid dataset range"
 
