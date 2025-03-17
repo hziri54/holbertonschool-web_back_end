@@ -1,0 +1,2 @@
+// List and obtain every document in the designated database's "school" collection using 
+db.school.find()
