@@ -1,2 +1,2 @@
-// Add a document with the attribute "name" to the collection "school" 
+// Add a document with the attribute "name" to the collection "school".
 db.school.insert({name: "Holberton school"})
