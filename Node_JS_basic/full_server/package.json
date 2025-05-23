@@ -1,0 +1,21 @@
+{
+  "name": "full_server",
+  "version": "1.0.0",
+  "description": "HTTP server organized with Express, using ES6 and Babel",
+  "main": "full_server/server.js",
+  "type": "module",
+  "scripts": {
+  "dev": "nodemon --exec babel-node --presets @babel/preset-env ./server.js ./database.csv"
+},
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.23.0",
+    "@babel/node": "^7.23.0",
+    "@babel/preset-env": "^7.23.0",
+    "nodemon": "^3.0.1"
+  }
+}
