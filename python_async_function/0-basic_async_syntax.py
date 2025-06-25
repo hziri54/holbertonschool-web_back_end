@@ -2,7 +2,7 @@
 """
 An asynchronous function in this module awaits a random delay.
 
-wait_random(max_delay) is a function that asynchronously waits for a random
+wait_random(max_delay) is a function that asynchron waits for a random
 amount of time between 0 and max_delay.
 """
 
